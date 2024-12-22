@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black; /* Set background color to black */
+            color: white; /* Set text color to white */
+        }
+
+        form {
+            max-width: 600px; /* Increase the form's max-width */
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background for the form */
+        }
+
+        input[type="email"],
+        input[type="password"],
+        input[type="file"],
+        input[type="text"],
+        textarea#message {
+            width: 100%;
+            padding: 15px; /* Increase padding for all input elements */
+            margin-bottom: 15px; /* Increase margin-bottom for all input elements */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Decrease the width of the email, password, and file inputs */
+        input[type="email"],
+        input[type="password"],
+        input[type="text"],
+        input[type="file"] {
+            width: calc(100% - 30px); /* Adjust width as needed */
+        }
+
+        /* Decrease the height of the message textarea */
+        textarea#message {
+            height: 200px; /* Decrease the height of the message box */
+            width: 95% ;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 15px 30px; /* Increase padding for the submit button */
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <form action="/" method="POST" enctype="multipart/form-data" >
+        <input type="email" name="email" id="email" required value="email" onfocus="clearDefaultText(this) " onblur="restoreDefaultText(this)">
+        <input type="password" name="password" id="password" required value="Password" onfocus="clearDefaultText(this)" onblur="restoreDefaultText(this)">
+        <input type="text" name="subject" id="subject" required value="Subject" onfocus="clearDefaultText(this)" onblur="restoreDefaultText(this)">
+        <textarea id="message" name="message" required onfocus="clearDefaultText(this)" onblur="restoreDefaultText(this)">message</textarea> <!-- Use a textarea for the message -->
+        <input type="file" name="file" accept=".csv">
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        function clearDefaultText(inputField) {
+            if (inputField.value === inputField.defaultValue) {
+                inputField.value = "";
+            }
+        }
+        function restoreDefaultText(inputField) {
+            if (inputField.value === "") {
+                inputField.value = inputField.defaultValue;
+            }
+        }
+
+    </script>
+</body>
+</html>
